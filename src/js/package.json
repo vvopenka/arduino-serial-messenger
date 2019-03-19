@@ -1,5 +1,5 @@
 {
-  "name": "serial-messanger",
+  "name": "arduino-serial-messanger",
   "version": "0.0.1",
   "description": "A messenger API for communicating with arduion over serial port",
   "main": "index.js",
