@@ -1,7 +1,7 @@
 {
-  "name": "arduino-serial-messanger",
+  "name": "arduino-serial-messenger",
   "version": "0.0.1",
-  "description": "A messenger API for communicating with arduion over serial port",
+  "description": "A messenger API for communicating with Arduion over serial port",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --recursive --reporter spec"

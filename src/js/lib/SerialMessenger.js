@@ -2,7 +2,7 @@ const EventEmitter = require('events');
 const SerialPort = require("serialport");
 const Message = require("./Message");
 
-class SerialMessanger extends EventEmitter  {
+class SerialMessenger extends EventEmitter  {
     /**
      * 
      * @param {String} options.path Path to serial port passed to SerialPort
@@ -14,7 +14,7 @@ class SerialMessanger extends EventEmitter  {
         super();
         this.options = Object.assign({}, {
             baudRate: 115200,
-            messagetypes: []
+            messageTypes: []
         }, options);
 
         if (serialport) {
@@ -95,4 +95,4 @@ class SerialMessanger extends EventEmitter  {
     }
 }
 
-module.exports = SerialMessanger;
+module.exports = SerialMessenger;

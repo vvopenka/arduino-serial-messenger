@@ -2,7 +2,7 @@ const chai = require("chai");
 const expect  = chai.expect;
 const EventEmitter = require('events');
 
-const SerialMessanger = require("../lib/SerialMessanger");
+const SerialMessenger = require("../lib/SerialMessenger");
 const MessageType = require("../lib/MessageType");
 const FixedSizeMessageType = MessageType.FixedSizeMessageType;
 const VariableSizeMessageType = MessageType.VariableSizeMessageType;
@@ -17,10 +17,10 @@ class FakeSerialPort extends EventEmitter {
     }
 }
 
-describe("SerialMessanger", function () {
+describe("SerialMessenger", function () {
     it("Send data writes to serial port.", function () {
         let sp = new FakeSerialPort();
-        let sm = new SerialMessanger({}, sp);
+        let sm = new SerialMessenger({}, sp);
         let type = new FixedSizeMessageType(0, 1);
         sm.sendData(type, [1]);
         expect(sp.writes.length).to.equal(1);
@@ -30,7 +30,7 @@ describe("SerialMessanger", function () {
     it("Fixed message with no body recieved correctly", function () {
         let sp = new FakeSerialPort();
         let type = new FixedSizeMessageType(0, 0);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [type]
         }, sp);
         let message = null;
@@ -46,7 +46,7 @@ describe("SerialMessanger", function () {
     it("Fixed message with body recieved correctly", function () {
         let sp = new FakeSerialPort();
         let type = new FixedSizeMessageType(0, 2);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [type]
         }, sp);
         let message = null;
@@ -63,7 +63,7 @@ describe("SerialMessanger", function () {
     it("Variable size message with no body recieved correctly", function () {
         let sp = new FakeSerialPort();
         let type = new VariableSizeMessageType(0, 0);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [type]
         }, sp);
         let message = null;
@@ -79,7 +79,7 @@ describe("SerialMessanger", function () {
     it("Variable size message with body recieved correctly", function () {
         let sp = new FakeSerialPort();
         let type = new VariableSizeMessageType(0, 5);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [type]
         }, sp);
         let message = null;
@@ -96,7 +96,7 @@ describe("SerialMessanger", function () {
     it("Correct message chozen", function () {
         let sp = new FakeSerialPort();
         let type = new FixedSizeMessageType(0, 0);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [new FixedSizeMessageType(1, 0), new FixedSizeMessageType(2, 0), type]
         }, sp);
         let message = null;
@@ -110,7 +110,7 @@ describe("SerialMessanger", function () {
 
     it("Unknow message type ignored", function () {
         let sp = new FakeSerialPort();
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [new FixedSizeMessageType(0, 0), new FixedSizeMessageType(1, 0), new FixedSizeMessageType(2, 0)]
         }, sp);
         let message = null;
@@ -128,7 +128,7 @@ describe("SerialMessanger", function () {
 
     it("Multiple messages parsed at once", function () {
         let sp = new FakeSerialPort();
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [new FixedSizeMessageType(0, 0), new FixedSizeMessageType(1, 0), new FixedSizeMessageType(2, 0)]
         }, sp);
         let messages = [];
@@ -153,7 +153,7 @@ describe("SerialMessanger", function () {
     it("Correct message parsed after an incorrect message", function () {
         let sp = new FakeSerialPort();
         let type = new VariableSizeMessageType(0, 5);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [type]
         }, sp);
         let messages = [];
@@ -174,7 +174,7 @@ describe("SerialMessanger", function () {
     it("Parses long message from multiple data packets", function () {
         let sp = new FakeSerialPort();
         let type = new FixedSizeMessageType(0, 5);
-        let sm = new SerialMessanger({
+        let sm = new SerialMessenger({
             messageTypes: [type]
         }, sp);
         let message = null;
