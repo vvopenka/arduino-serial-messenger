@@ -13,7 +13,7 @@ class MessageType {
     isFixedSize() {
         throw new Error("You shouldn't initialize MessageType class, it should be used only from child classes");
     }
-    getMaximalPaxketSize() {
+    getMaximalPacketSize() {
         throw new Error("You shouldn't initialize MessageType class, it should be used only from child classes");
     }
     getTypeByte() {
@@ -42,7 +42,7 @@ class FixedSizeMessageType extends MessageType {
     getSizeOfData() {
         return this.sizeOfData;
     }
-    getMaximalPaxketSize() {
+    getMaximalPacketSize() {
         return this.sizeOfData + 1;
     }
 }
@@ -64,7 +64,7 @@ class VariableSizeMessageType extends MessageType {
     getMaximalLength() {
         return this.maximalLength;
     }
-    getMaximalPaxketSize() {
+    getMaximalPacketSize() {
         return this.maximalLength + 2;
     }
 }

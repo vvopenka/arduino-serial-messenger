@@ -17,12 +17,12 @@ describe("FixedSizeMessageType", function () {
     it("Type without data created.", function () {
         let type = new FixedSizeMessageType(0, 0);
         expect(type.getTypeByte()).to.equal(0);
-        expect(type.getMaximalPaxketSize()).to.equal(1);
+        expect(type.getMaximalPacketSize()).to.equal(1);
     });
     it("Type with data created.", function () {
         let type = new FixedSizeMessageType(1, 10);
         expect(type.getTypeByte()).to.equal(2);
-        expect(type.getMaximalPaxketSize()).to.equal(11);
+        expect(type.getMaximalPacketSize()).to.equal(11);
     })
 });
 
@@ -45,12 +45,12 @@ describe("VariableSizeMessageType", function () {
     it("Type without data created.", function () {
         let type = new VariableSizeMessageType(0, 0);
         expect(type.getTypeByte()).to.equal(1);
-        expect(type.getMaximalPaxketSize()).to.equal(2);
+        expect(type.getMaximalPacketSize()).to.equal(2);
     });
 
     it("Type with data created.", function () {
         let type = new VariableSizeMessageType(1, 10);
         expect(type.getTypeByte()).to.equal(3);
-        expect(type.getMaximalPaxketSize()).to.equal(12);
+        expect(type.getMaximalPacketSize()).to.equal(12);
     })
 });
