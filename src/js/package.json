@@ -1,6 +1,6 @@
 {
   "name": "arduino-serial-messenger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A messenger API for communicating with Arduion over serial port",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,22 @@
     "arduion",
     "serial"
   ],
-  "author": "Vasek Vopenka",
+  "author": {
+    "name": "Vasek Vopenka",
+    "email": "vasek.vopenka@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Vasek Vopenka",
+      "email": "vasek.vopenka@gmail.com"
+    }
+  ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vvopenka/arduino-serial-messenger.git"
+  },
+  "homepage": "https://github.com/vvopenka/arduino-serial-messenger",
   "dependencies": {
     "serialport": "^7.1.4"
   },
