@@ -108,7 +108,7 @@ describe("SerialMessenger", function () {
         expect(message.getMessageType()).to.equal(type);
     });
 
-    it("Unknow message type ignored", function () {
+    it("Unknown message type ignored", function () {
         let sp = new FakeSerialPort();
         let sm = new SerialMessenger({
             messageTypes: [new FixedSizeMessageType(0, 0), new FixedSizeMessageType(1, 0), new FixedSizeMessageType(2, 0)]
@@ -118,7 +118,7 @@ describe("SerialMessenger", function () {
         sm.on("message", function (msg) {
             message = msg;
         });
-        sm.on("unknowtype", function (data) {
+        sm.on("unknowntype", function (data) {
             unknowtype = data;
         });
         sp.emit("data", Buffer.from([3]));
@@ -136,7 +136,7 @@ describe("SerialMessenger", function () {
         sm.on("message", function (msg) {
             messages.push(msg);
         });
-        sm.on("unknowtype", function () {
+        sm.on("unknowntype", function () {
             unknowtypeEmitted = true;
         });
         sp.emit("data", Buffer.from([2 << 1, 1 << 1, 0]));
@@ -161,7 +161,7 @@ describe("SerialMessenger", function () {
         sm.on("message", function (msg) {
             messages.push(msg);
         });
-        sm.on("unknowtype", function (data) {
+        sm.on("unknowntype", function (data) {
             unknowtypes.push(data);
         });
         sp.emit("data", Buffer.from([3, 1, 2, 1, 2]));
@@ -182,7 +182,7 @@ describe("SerialMessenger", function () {
         sm.on("message", function (msg) {
             message = msg;
         });
-        sm.on("unknowtype", function () {
+        sm.on("unknowntype", function () {
             unknowtypeEmitted = true;
         });
         sp.emit("data", Buffer.from([0, 1]));

@@ -5,7 +5,7 @@ const del = require("del");
 
 const DESTINATION = path.join(__dirname, "arduino-serial-messenger");
 const TEMPLATES_DIR = path.join(DESTINATION, "templates");
-const FILES = ["index.js", "package.json", ".gitignore"];
+const FILES = ["index.js", "package.json", ".gitignore", "README.md"];
 const DIRS = ["lib", "test"];
 
 async function copyDir(sourcePath, destPath, dirName) {

@@ -31,8 +31,8 @@ class MessageType {
 class FixedSizeMessageType extends MessageType {
     constructor(typeId, sizeOfData, receiveHandler) {
         super(typeId, receiveHandler);
-        if (sizeOfData < 0 || sizeOfData > 255) {
-            throw new Error("Maximal size of data is 255");
+        if (sizeOfData < 0 || sizeOfData > 254) {
+            throw new Error("Maximal size of data is 254");
         }
         this.sizeOfData = sizeOfData;
     }
@@ -53,8 +53,8 @@ class VariableSizeMessageType extends MessageType {
         if (isNaN(maximalLength)) {
             maximalLength = 255;
         }
-        if (maximalLength < 0 || maximalLength > 255) {
-            throw new Error("Maximal lenght allowed is 255");
+        if (maximalLength < 0 || maximalLength > 253) {
+            throw new Error("Maximal length allowed is 253");
         }
         this.maximalLength = maximalLength;
     }

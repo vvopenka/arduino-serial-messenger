@@ -45,7 +45,7 @@ class SerialMessenger extends EventEmitter  {
         }
         let messageType = this._getMessageType(this.buffer[0]);
         if (messageType === null) {
-            this.emit("unknowtype", this.buffer[0]);
+            this.emit("unknowntype", this.buffer[0]);
             this.buffer.shift();
             return true;
         }
