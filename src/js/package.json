@@ -1,6 +1,6 @@
 {
   "name": "arduino-serial-messenger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A messenger API for communicating with Arduion over serial port",
   "main": "index.js",
   "scripts": {
