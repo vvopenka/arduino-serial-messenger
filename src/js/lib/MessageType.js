@@ -51,7 +51,7 @@ class VariableSizeMessageType extends MessageType {
     constructor(typeId, maximalLength, receiveHandler) {
         super(typeId, receiveHandler);
         if (isNaN(maximalLength)) {
-            maximalLength = 255;
+            maximalLength = 253;
         }
         if (maximalLength < 0 || maximalLength > 253) {
             throw new Error("Maximal length allowed is 253");

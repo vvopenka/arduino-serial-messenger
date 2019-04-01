@@ -37,9 +37,9 @@ describe("VariableSizeMessageType", function () {
         expect(() => new VariableSizeMessageType(0, -1)).to.throw(Error, /.*/, "-1 should be out of bound");
     });
 
-    it("Defaults maximal length to 255.", function () {
+    it("Defaults maximal length to 253.", function () {
         let type = new VariableSizeMessageType(0);
-        expect(type.getMaximalLength()).to.equal(255);
+        expect(type.getMaximalLength()).to.equal(253);
     });
 
     it("Type without data created.", function () {
