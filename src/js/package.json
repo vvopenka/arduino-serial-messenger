@@ -27,15 +27,15 @@
   },
   "homepage": "https://github.com/vvopenka/arduino-serial-messenger",
   "dependencies": {
-    "serialport": "^7.1.4"
+    "serialport": "^7.1.5"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
-    "del": "^4.0.0",
+    "del": "^4.1.1",
     "fsp": "^0.1.2",
-    "mocha": "^6.0.2",
-    "sinon": "^7.2.7",
-    "tar": "^4.4.8"
+    "mocha": "^6.1.4",
+    "sinon": "^7.3.2",
+    "tar": "^4.4.10"
   }
 }
